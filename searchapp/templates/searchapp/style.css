@@ -1,0 +1,191 @@
+/* body {
+    margin: 0;
+    padding: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+}
+
+.bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+.search-bar {
+    display: flex;
+    width: 50%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 50px;
+    border: 2px solid #007BFF;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 10px;
+    margin-left: 10px; 
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3; 
+}
+
+#voice-button {
+    background: #007BFF; 
+    border: 2px solid transparent;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+#voice-button i {
+    color: white; 
+}
+
+.upload-button {
+    background: #007BFF;
+    margin-right: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+} */
+
+body {
+    margin: 0;
+    padding: 10%;
+    height: 100%;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+}
+
+.bar {
+    display: flex;
+    justify-content: center;
+
+}
+
+.search-bar {
+    width: 50%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 50px;
+    border: 2px solid #007BFF;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+
+}
+
+.search-button {
+    padding: 10px, 10px, 10px;
+    margin-left: 10px;
+    /* Adjust the space between bar and button */
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+#voice-button {
+    right: 0;
+    background: #007BFF;
+    /* Adjust color as needed */
+    border: 2px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+/* Style the microphone icon */
+#voice-button i {
+    color: white;
+    /* Adjust color as needed */
+}
+
+.upload-button {
+    background: #007BFF;
+    margin-right: 10px;
+    border: 2px;
+    border-radius: 10px;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+.file-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    /* Spacing between file cards */
+    margin-top: 20px;
+}
+
+.file-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    color: black;
+    width: 200px; /* Adjust as needed */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+.file-card:hover {
+    transform: scale(1.05); /* Grow slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a deeper shadow */
+}
+
+.file-card h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.file-card p {
+    font-size: 14px;
+    color: #666;
+}
+
