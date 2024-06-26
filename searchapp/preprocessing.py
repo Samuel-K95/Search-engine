@@ -18,7 +18,7 @@ from SearchEngine import settings
 class PreProcessing:
     def __init__(self):
         self.contents = defaultdict(list)
-        self.directory = os.path.join(settings.MEDIA_ROOT, 'documents')
+        self.directory = os.path.join(settings.MEDIA_ROOT)
         self.stop_words = set(stopwords.words('english'))
     
     def process(self):

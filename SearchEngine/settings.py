@@ -25,11 +25,11 @@ SECRET_KEY = 'django-insecure-_aq_a09$$8be*uurr6e6r=&n=r!g@lb5zfxin1ho1wlh-=-ds7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+APPEND_SLASH = True
 ALLOWED_HOSTS = []
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/documents')
 
 # Application definition
 
@@ -119,7 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
