@@ -15,8 +15,8 @@ This project is a document search and similarity engine built using Django. It a
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/document-search-engine.git
-   cd document-search-engine
+   git clone https://github.com/Samuel-K95/Search-engine.git
+   cd Search-engine
    ```
 
 2. **Create and activate a virtual environment:**
