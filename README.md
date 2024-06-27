@@ -80,6 +80,10 @@ The similarity between the query and documents in the corpus is calculated using
 - NLTK (Natural Language Toolkit)
 - PyPDF2 (for PDF file handling)
 
+## Contributors
+- [Samuel Keno](https://github.com/Samuel-K95)
+- [Sadam Hussein](https://github.com/Urz1)
+
 ## Contributing
 
 1. **Fork the repository**
