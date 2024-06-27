@@ -1,17 +1,15 @@
-from django.shortcuts import render
-
-
 from collections import defaultdict
-import mimetypes, os, PyPDF2, nltk
-
+import mimetypes
+import os
+import PyPDF2
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from docx import Document as DocxDocument
-
 from SearchEngine import settings
+
 
 
 
@@ -28,30 +26,30 @@ class PreProcessing:
             try:
                 if mimetype:
                     mime_type = mimetype.split('/')[1].lower()
-                    print("type", mime_type)
+                    print(mime_type)
+                    if mime_type == 'pdf':
+                        with open(filepath, 'rb') as file:
+                            pdf_reader = PyPDF2.PdfReader(file)
+                            text = ''
+                            for page_num, page in enumerate(pdf_reader.pages):
+                                text += page.extract_text()
+                            self.contents[filename] = [text]
 
-                if mime_type == 'pdf':
-                    with open(filepath, 'rb') as file:
-                        pdf_reader = PyPDF2.PdfReader(file)
-                        text = ''
-                        for page_num, page in enumerate(pdf_reader.pages):
-                            text += page.extract_text()
-                        self.contents[filename] = [text]
+                    if mime_type == 'docx'or mime_type == 'vnd.openxmlformats-officedocument.wordprocessingml.document':
+                        doc = DocxDocument(filepath)
+                        text = []
+                        for paragraph in doc.paragraphs:
+                            text.append(paragraph.text)
+                        
+                        self.contents[filename] = text
 
-                elif mime_type == 'docx':
-                    doc = DocxDocument(filepath)
-                    text = []
-                    for paragraph in doc.paragraphs:
-                        text.append(paragraph.text)
-                    self.contents[filename] = text
-
-                elif mime_type == 'txt':
-                    with open(filepath, 'r', encoding='utf-8') as file:
-                        lines = file.readlines()
-                        self.contents[filename] = lines
+                    if mime_type == 'plain':
+                        with open(filepath, 'r', encoding='utf-8') as file:
+                            lines = file.readlines()
+                            self.contents[filename] = lines
 
             except Exception as e:
-                print(f"Could not read file {filename} unsupported file or encoding \n {e}")
+                print(f"Could not read file {filename}: {e}")
         
     def tokenize(self):
         for filename, content in (self.contents.items()):

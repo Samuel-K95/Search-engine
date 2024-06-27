@@ -40,7 +40,11 @@ def view_documents(request):
         except Exception as e:
             print(e)
 
-        return render(request, 'searchapp/test.html', {'file_content': ranked})
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            return JsonResponse({'file_content': ranked})
+        else:
+            request.session['raked_list'] = ranked
+            return render(request, 'searchapp/test.html', {'file_content': ranked})
     else:
         return render(request, 'searchapp/index.html')
 

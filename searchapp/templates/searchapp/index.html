@@ -17,11 +17,10 @@
 <body>
     <h1>SEARCH</h1>
     <div class="form_holder">
-
-        <form  method="post" class="bar upload-form" enctype="multipart/form-data" novalidate>{% csrf_token %}
+        <form id="uploadForm" method="post" class="bar upload-form" enctype="multipart/form-data" novalidate>{% csrf_token %}
             <div>
                 <input type="file" id="fileInput" style="display: none;" name="files" multiple/>
-                <button type="submit" id="browseButton" class="upload-button"><i class="fas fa-upload"></i> Upload File</button>
+                <button type="button" id="browseButton" class="upload-button"><i class="fas fa-upload"></i> Upload File</button>
             </div>
         </form>
 
@@ -31,35 +30,16 @@
                 <button type="submit" class="search-button"><i class="fas fa-search"></i> Search</button>
             </div>
         </form>
-
     </div>
+
     <div id="fileCardContainer" class="file-card-container"></div>
 
-    <div id="fileCardTemplate" class="file-card" style="display: none;">
-        <h2>Filename</h2>
-        <p>File details (optional)</p>
-    </div>
-
-    <script>
-        $('#uploadForm').on('submit', function(event) {
-            event.preventDefault();
-            
-            var formData = new FormData(this);
-
-            $.ajax({
-                url: '/upload/',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    console.log('Files uploaded successfully');
-                },
-                error: function(response) {
-                    console.error('An error occurred while uploading files.');
-                }
-            });
-        });
-    </script>
+    <template id="fileCardTemplate">
+        <div class="file-card" style="display: none;">
+            <h2>Filename</h2>
+            <div id="paragraphContainer"></div>
+            <p>File details (optional)</p>
+        </div>
+    </template>
 </body>
 </html>
