@@ -91,15 +91,3 @@ The similarity between the query and documents in the corpus is calculated using
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any questions or suggestions, please contact [yourname@domain.com].
-
----
-
-By following this README, you should be able to set up and use the document search and similarity engine effectively. Happy searching!
-
----
-
-Feel free to customize this README file to better fit your project's specifics and requirements.
